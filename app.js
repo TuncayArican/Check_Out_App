@@ -29,10 +29,17 @@ for (let i = 0; i < quantity.length; i++) {
         Number(quantity[i].innerText)).toFixed(2)
         price()
 })
-    remove[i].addEventListener("click", ()=>{
-    products[i].remove();
-})
 }
+for (let i = 0; i < quantity.length; i++) {
+remove[i].addEventListener("click", ()=>{
+    products[i].remove();
+    delete products[i];
+    price()
+    console.log(products);
+}
+) }
+
+
 function price(){ 
         product_line_price.forEach(e => {
         subtotal+=Number(e.innerText)
