@@ -17,6 +17,7 @@ for (let i = 0; i < quantity.length; i++) {
         quantity[i].innerText=Number(quantity[i].innerText)-1;
         if(quantity[i].innerText==0){
         products[i].remove();
+        product_line_price[i].innerText="0";
         }else {
             product_line_price[i].innerText=(Number(strong[i].innerText)*
             Number(quantity[i].innerText)).toFixed(2)
@@ -29,24 +30,25 @@ for (let i = 0; i < quantity.length; i++) {
         Number(quantity[i].innerText)).toFixed(2)
         price()
 })
-}
-for (let i = 0; i < quantity.length; i++) {
 remove[i].addEventListener("click", ()=>{
     products[i].remove();
     product_line_price[i].innerText="0"
     price()
-    console.log(products);
 }
-) }
-
+)
+}
 
 function price(){ 
         product_line_price.forEach(e => {
         subtotal+=Number(e.innerText)
         });
+        if (subtotal==0) {
+            cart_shipping.innerText=0
+        }else{
+            cart_shipping.innerText=15
+        }
         cart_subtotal.innerText=subtotal.toFixed(2)
         cart_tax.innerText=((cart_subtotal.innerText)*0.18).toFixed(2);
-        cart_shipping.innerText=15
         cart_total.innerText=(Number(cart_shipping.innerText)+Number(cart_tax.innerText)+Number(cart_subtotal.innerText)).toFixed(2)
         subtotal=0;
 };
