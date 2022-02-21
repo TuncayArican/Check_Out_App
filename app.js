@@ -33,7 +33,7 @@ for (let i = 0; i < quantity.length; i++) {
 for (let i = 0; i < quantity.length; i++) {
 remove[i].addEventListener("click", ()=>{
     products[i].remove();
-    delete products[i];
+    product_line_price[i].innerText="0"
     price()
     console.log(products);
 }
